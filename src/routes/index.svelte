@@ -34,7 +34,7 @@
 {:else}
 	{#each $allPosts.data.listPosts.data as post}
 		<div class="post-wrap">
-			<a href="/posts/${post._id}">
+			<a href="/posts/{post._id}">
 				<div>{post.title}</div>
 			</a>
 			<span>by {post.author.email}</span>
