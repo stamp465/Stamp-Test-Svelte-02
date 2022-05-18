@@ -2,6 +2,8 @@
 	import { operationStore, query, setClient } from '@urql/svelte';
 	import { page } from '$app/stores';
 	import client from '../../client';
+	import Delete from '$lib/Delete.svelte';
+	import Edit from '$lib/Edit.svelte';
 	setClient(client);
 
 	const currentPost = operationStore(
@@ -21,6 +23,14 @@
 	);
 
 	query(currentPost);
+
+	export let post = null;
+
+	currentPost.subscribe(({ data }) => {
+		if (data) {
+			post = data.findPostByID;
+		}
+	});
 </script>
 
 {#if $currentPost.fetching}
@@ -29,4 +39,6 @@
 	<h2>{$currentPost.data.findPostByID.title}</h2>
 	<p>By <b>{currentPost.data.findPostByID.author.email}</b></p>
 	<p>{$currentPost.data.findPostByID.content}</p>
+	<Edit {post} />
+	<Delete />
 {/if}
