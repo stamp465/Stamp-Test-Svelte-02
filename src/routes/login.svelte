@@ -3,6 +3,7 @@
 	import client from '../client';
 	import Cookies from 'js-cookie';
 	import { goto } from '$app/navigation';
+	import { userSession } from '../store';
 
 	setClient(client);
 
@@ -29,14 +30,13 @@
 			data[key] = value;
 		}
 		const { email, password } = data;
-        console.log(data)
+		console.log(data);
 		const resp = await loginMutation({ email, password });
-        console.log(resp)
+		console.log(resp);
 
-        if (resp.data == undefined) {
-            alert('Worng email or Password');
-        }
-		else if (resp.data.login.data) {
+		if (resp.data == undefined) {
+			alert('Worng email or Password');
+		} else if (resp.data.login.data) {
 			Cookies.set(
 				'MY_BLOG_APP_TOKEN',
 				JSON.stringify({
@@ -45,6 +45,11 @@
 				}),
 				{ expires: resp.data.login.data.ttl }
 			);
+			userSession.update(() => ({
+				email,
+				id: resp.data.login.data._id,
+				secret: resp.data.login.secret
+			}));
 			alert('Login Successful');
 			goto('/');
 		}
