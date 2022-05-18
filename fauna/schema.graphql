@@ -13,3 +13,15 @@ type Post @protected(membership: "User", rule: ["read", "write", "create"]) {
 type Query {
   listPosts: [Post]
 }
+
+type Mutation {
+  register(email: String!, password: String!): User @resolver(name: "RegisterUser")
+  login(email: String!, password: String!): Token @resolver(name: "LoginUser")
+}
+
+type Token @embedded {
+  ttl: Time!
+  secret: String!
+  data: User
+}
+
