@@ -46,6 +46,7 @@
 				{ expires: resp.data.login.data.ttl }
 			);
 			userSession.update(() => ({
+				
 				email,
 				id: resp.data.login.data._id,
 				secret: resp.data.login.secret
