@@ -29,6 +29,7 @@
 	currentPost.subscribe(({ data }) => {
 		if (data) {
 			post = data.findPostByID;
+			console.log(post)
 		}
 	});
 </script>

@@ -12,6 +12,9 @@ type Post @protected(membership: "User", rule: ["read", "write", "create"]) {
 
 type Query {
   listPosts: [Post]
+  users(username: String!): [User]
+  posts(title: String!): [Post] 
+  GetPostByUsersEmail(email: String!): [User]
 }
 
 type Mutation {
