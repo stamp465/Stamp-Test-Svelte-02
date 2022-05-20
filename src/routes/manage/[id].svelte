@@ -19,7 +19,8 @@
         }
       }
     `,
-		{ id: $page.params.id }
+		{ id: $page.params.id },
+		{ requestPolicy: 'network-only' }
 	);
 
 	query(currentPost);

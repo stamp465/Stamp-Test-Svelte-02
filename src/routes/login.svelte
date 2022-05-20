@@ -30,9 +30,9 @@
 			data[key] = value;
 		}
 		const { email, password } = data;
-		console.log(data);
+		/*console.log(data);*/
 		const resp = await loginMutation({ email, password });
-		console.log(resp);
+		/*console.log(resp);*/
 
 		if (resp.data == undefined) {
 			alert('Worng email or Password');

@@ -23,6 +23,9 @@
 
 	query(allPosts);
 
+	import Cookies from 'js-cookie';
+	console.log(Cookies)
+
 </script>
 
 <h1>Posts</h1>

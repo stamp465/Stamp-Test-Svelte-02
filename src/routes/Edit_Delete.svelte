@@ -9,9 +9,9 @@
 	userSession.subscribe((val) => {
 		user = val;
 	});
-	console.log('user = ');
+	/*console.log('user = ');
 	console.log(user.id);
-	console.log(user.email);
+	console.log(user.email);*/
 
 	const myPosts = operationStore(
 		gql`
@@ -38,6 +38,10 @@
 	);
 
 	query(myPosts);
+
+
+	
+
 </script>
 
 <h1>Posts</h1>
