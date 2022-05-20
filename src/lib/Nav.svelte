@@ -14,92 +14,56 @@
 	}
 </script>
 
-<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-	<div class="container flex flex-wrap justify-between items-center mx-auto">
-		<a href="https://flowbite.com" class="flex items-center">
-			<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Blog</span>
-		</a>
-		
-		<button
-			data-collapse-toggle="mobile-menu"
-			type="button"
-			class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-			aria-controls="mobile-menu"
-			aria-expanded="false"
-		>
-			<span class="sr-only">Open main menu</span>
-			<svg
-				class="w-6 h-6"
-				fill="currentColor"
-				viewBox="0 0 20 20"
-				xmlns="http://www.w3.org/2000/svg"
-				><path
-					fill-rule="evenodd"
-					d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-					clip-rule="evenodd"
-				/></svg
+<div class="navbar bg-base-100">
+	<div class="navbar-start">
+		<div class="dropdown">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
+			<label tabindex="0" class="btn btn-ghost lg:hidden">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-5 w-5"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+					><path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h8m-8 6h16"
+					/></svg
+				>
+			</label>
+			<ul
+				tabindex="0"
+				class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
 			>
-			<svg
-				class="hidden w-6 h-6"
-				fill="currentColor"
-				viewBox="0 0 20 20"
-				xmlns="http://www.w3.org/2000/svg"
-				><path
-					fill-rule="evenodd"
-					d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-					clip-rule="evenodd"
-				/></svg
-			>
-			
-		</button>
-		
-
-		<div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-			<ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
 				{#if user}
-					<li>
-						<a
-							href="/posts/new"
-							class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-							>New Post</a
-						>
-					</li>
-					<li>
-						<a
-							href="/Edit_Delete"
-							class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-							>Edit</a
-						>
-					</li>
-					<li>
-						<a
-							href="/login"
-							on:click={logout}
-							class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-							>Logout</a
-						>
-					</li>
+					<li><a href="/posts/new">New Post</a></li>
+					<li><a href="/Edit_Delete">Edit Post</a></li>
 				{:else}
-					<li>
-						<a
-							href="/login"
-							class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-							>Login</a
-						>
-					</li>
-					<li>
-						<a
-							href="/register"
-							class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-							>Register</a
-						>
-					</li>
+					<li><a href="/register">register</a></li>
 				{/if}
 			</ul>
 		</div>
+		<a href="/" class="btn btn-ghost normal-case text-xl">Blog</a>
 	</div>
-
-	
-</nav>
-
-
+	<div class="navbar-center hidden lg:flex">
+		<ul class="menu menu-horizontal p-0">
+			{#if user}
+				<li><a href="/posts/new">New Post</a></li>
+				<li><a href="/Edit_Delete">Edit Post</a></li>
+			{:else}
+				<li><a href="/register">register</a></li>
+			{/if}
+		</ul>
+	</div>
+	{#if user}
+		<div class="navbar-end">
+			<a href="/login" on:click={logout} class="btn">Logout</a>
+		</div>
+	{:else}
+		<div class="navbar-end">
+			<a href="/login" class="btn">Login</a>
+		</div>
+	{/if}
+</div>
