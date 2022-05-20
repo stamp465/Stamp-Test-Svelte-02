@@ -28,6 +28,7 @@
 
 </script>
 
+<!--
 <h1>Posts</h1>
 
 {#if $allPosts.fetching}
@@ -50,3 +51,5 @@
 		margin-bottom: 1rem;
 	}
 </style>
+-->
+
