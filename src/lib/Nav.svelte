@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="navbar bg-base-100">
+<div class="navbar bg-neutral text-neutral-content">
 	<div class="navbar-start">
 		<div class="dropdown">
 			<!-- svelte-ignore a11y-label-has-associated-control -->
@@ -47,23 +47,22 @@
 		</div>
 		<a href="/" class="btn btn-ghost normal-case text-xl">Blog</a>
 	</div>
-	<div class="navbar-center hidden lg:flex">
-		<ul class="menu menu-horizontal p-0">
-			{#if user}
-				<li><a href="/posts/new">New Post</a></li>
-				<li><a href="/Edit_Delete">Edit Post</a></li>
-			{:else}
-				<li><a href="/register">register</a></li>
-			{/if}
-		</ul>
+	<div class="navbar-end">
+		<div class="hidden lg:flex ">
+			<ul class="menu menu-horizontal p-0">
+				{#if user}
+					<li><a href="/posts/new">New Post</a></li>
+					<li><a href="/Edit_Delete">Edit Post</a></li>
+				{:else}
+					<li><a href="/register">register</a></li>
+				{/if}
+			</ul>
+		</div>
+		{#if user}
+			<a href="/" on:click={logout} class="btn">Logout</a>
+			
+		{:else}
+			<a href="/login" class="btn" >Login</a>
+		{/if}
 	</div>
-	{#if user}
-		<div class="navbar-end">
-			<a href="/login" on:click={logout} class="btn">Logout</a>
-		</div>
-	{:else}
-		<div class="navbar-end">
-			<a href="/login" class="btn">Login</a>
-		</div>
-	{/if}
 </div>
