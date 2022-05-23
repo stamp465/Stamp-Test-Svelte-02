@@ -12,7 +12,7 @@
           title
           content
           author {
-            email
+			username
           }
         }
       }
@@ -29,6 +29,6 @@
 	<p>Loading...</p>
 {:else}
 	<h2>{$currentPost.data.findPostByID.title}</h2>
-	<p>By <b>{currentPost.data.findPostByID.author.email}</b></p>
+	<p>By <b>{currentPost.data.findPostByID.author.username}</b></p>
 	<p>{$currentPost.data.findPostByID.content}</p>
 {/if}

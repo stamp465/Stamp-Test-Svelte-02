@@ -7,8 +7,8 @@
 
 	const registerMutation = mutation({
 		query: `
-        mutation ($email: String!, $password: String!) {
-          register(email: $email, password: $password) {
+        mutation ($email: String!, $password: String!, $username: String!, $about_me: String!) {
+          register(email: $email, password: $password, username: $username, about_me: $about_me) {
             email
             _id
           }
@@ -24,8 +24,8 @@
 			const [key, value] = field;
 			data[key] = value;
 		}
-		const { email, password } = data;
-		const resp = await registerMutation({ email, password });
+		const { email, password, username, about_me } = data;
+		const resp = await registerMutation({ email, password, username, about_me });
 		if (resp.data.register) {
 			goto('/');
 		}
@@ -44,8 +44,16 @@
 			<input type="text" id="email" name="email" value="" />
 		</div>
 		<div>
+			<label for="name">Username</label>
+			<input type="text" id="username" name="username" value="" />
+		</div>
+		<div>
 			<label for="name">Password</label>
 			<input type="password" id="password" name="password" value="" />
+		</div>
+		<div>
+			<label for="name">About me</label>
+			<input type="text" id="about_me" name="about_me" value="" />
 		</div>
 		<button class="button is-light" type="submit">Register</button>
 	</form>

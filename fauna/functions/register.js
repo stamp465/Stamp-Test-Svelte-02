@@ -7,10 +7,14 @@ export default {
   body:
   q.Query(
     q.Lambda(
-      ["email", "password"],
+      ["email", "password", "username", "about_me"],
       q.Create(q.Collection("User"), {
         credentials: { password: q.Var("password") },
-        data: { email: q.Var("email")}
+        data: { 
+          email: q.Var("email"),
+          username: q.Var("username"),
+          about_me: q.Var("about_me")
+        }
       })
     )
   )

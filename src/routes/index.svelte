@@ -11,9 +11,10 @@
         data {
           _id
           title
+		  title_image
 		  content
           author {
-            email
+			username
           }
         }
       }
@@ -24,13 +25,14 @@
 	);
 
 	query(allPosts);
+	/*console.log(allPosts);*/
 
 	import Cookies from 'js-cookie';
 	console.log(Cookies);
 </script>
 
 <h1 class="font-bold text-center mb-20 text-5xl">
-	Welcome to my Blog
+	Welcome to Blog
 </h1>
 
 {#if $allPosts.fetching}
@@ -44,7 +46,8 @@
 				<Card
 					_id={post._id}
 					title={post.title}
-					author_email={post.author.email}
+					title_image={post.title_image}
+					author_username={post.author.username}
 					description={post.content}
 				/>
 			</div>

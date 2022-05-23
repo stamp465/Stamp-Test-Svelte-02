@@ -1,11 +1,13 @@
 type User @auth(primary: "email") {
   username: String!
+  about_me: String!
   email: String!
   posts: [Post!] @relation
 }
 
 type Post @protected(membership: "User", rule: ["read", "write", "create"]) {
   title: String!
+  title_image: String!
   content: String!
   author: User!
 }
@@ -18,7 +20,7 @@ type Query {
 }
 
 type Mutation {
-  register(email: String!, password: String!): User @resolver(name: "RegisterUser")
+  register(email: String!, password: String!, username: String!, about_me: String!): User @resolver(name: "RegisterUser")
   login(email: String!, password: String!): Token @resolver(name: "LoginUser")
 }
 

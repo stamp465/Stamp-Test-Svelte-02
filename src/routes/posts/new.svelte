@@ -15,9 +15,10 @@
 
 	const newPost = mutation({
 		query: `
-      mutation CreatePost($title: String!, $content: String! $authorId: ID!) {
+      mutation CreatePost($title: String!, $title_image: String!, $content: String! $authorId: ID!) {
         createPost(data: {
           title: $title
+		  title_image: $title_image
           content: $content
           author: {
             connect: $authorId
@@ -25,6 +26,7 @@
         }) {
           _id
           title
+		  title_image
           content
         }
       }
@@ -39,15 +41,15 @@
 			const [key, value] = field;
 			data[key] = value;
 		}
-
-		const { content, title } = data;
+		console.log(data)
+		const { title, title_image, content } = data;
 		try {
 			console.log('authorId', authorId);
 			if (!authorId) {
 				alert('You must be logged in to create a post');
 				return;
 			}
-			const resp = await newPost({ title, content, authorId });
+			const resp = await newPost({ title, title_image, content, authorId });
 			if (resp.data.createPost) {
 				alert('Post created successfully');
 				goto('/');
@@ -67,6 +69,10 @@
 		<div class="input-blocks">
 			<label for="name">Title</label>
 			<input type="text" name="title" value="" />
+		</div>
+		<div class="input-blocks">
+			<label for="name">Title Image</label>
+			<input type="text" name="title_image" value="" />
 		</div>
 		<div class="input-blocks">
 			<label for="name">Content</label>
