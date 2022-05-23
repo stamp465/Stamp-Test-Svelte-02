@@ -22,11 +22,10 @@
 	);
 
 	query(currentPost);
-
 </script>
 
 {#if $currentPost.fetching}
-	<p>Loading...</p>
+	<progress class="progress" />
 {:else}
 	<h2>{$currentPost.data.findPostByID.title}</h2>
 	<p>By <b>{currentPost.data.findPostByID.author.username}</b></p>

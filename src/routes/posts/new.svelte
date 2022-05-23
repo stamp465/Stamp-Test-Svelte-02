@@ -3,6 +3,7 @@
 	import { setClient, mutation } from '@urql/svelte';
 	import { clientWithAuthToken } from '../../client';
 	import { goto } from '$app/navigation';
+	
 
 	let userSession = Cookies.get('MY_BLOG_APP_TOKEN');
 	let authorId;
@@ -41,7 +42,7 @@
 			const [key, value] = field;
 			data[key] = value;
 		}
-		console.log(data)
+		console.log(data);
 		const { title, title_image, content } = data;
 		try {
 			console.log('authorId', authorId);
@@ -60,35 +61,31 @@
 	}
 </script>
 
-<div>
-	<h3>New Post</h3>
+<div class="flex flex-col items-center ">
+	<h1 class="font-bold text-center mb-5 text-3xl">
+		New Post
+	</h1>
 	{#if !userSession}
 		<p class="login-promt">You must be logged in to create a post</p>
 	{/if}
-	<form on:submit|preventDefault={onSubmit}>
+	<form on:submit|preventDefault={onSubmit} class="bg-cyan-100 w-full max-w-3xl bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg"> 
 		<div class="input-blocks">
-			<label for="name">Title</label>
-			<input type="text" name="title" value="" />
+			<label for="name" class="font-semibold">Title</label>
+			<input type="text" placeholder="Type here" class="input input-bordered input-sm w-full" name="title"/>
 		</div>
 		<div class="input-blocks">
-			<label for="name">Title Image</label>
-			<input type="text" name="title_image" value="" />
+			<label for="name" class="font-semibold">Title Image</label>
+			<input type="text" placeholder="Type here" class="input input-bordered input-sm w-full" name="title_image" value="" />
 		</div>
 		<div class="input-blocks">
-			<label for="name">Content</label>
-			<textarea type="text" name="content" value="" />
+			<label for="name" class="font-semibold">Content</label>
+			<textarea type="text" class="textarea textarea-bordered input-xl w-full" name="content" value="" />
 		</div>
-		<button type="submit">Submit</button>
+		<button type="submit" class="btn btn-active btn-primary">Submit</button>
 	</form>
 </div>
 
 <style>
-	.input-blocks {
-		display: flex;
-		flex-direction: column;
-		max-width: 300px;
-		margin-bottom: 1em;
-	}
 	.login-promt {
 		color: coral;
 	}
