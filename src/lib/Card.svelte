@@ -10,7 +10,7 @@
 	<figure><img src="{title_image}" alt="title_image"  class="object-cover w-screen h-72 "/></figure>
 	<div class="card-body">
 		<h2 class="card-title">{title}</h2>
-		<p>{description.slice(0, 80)}...</p>
+		<p>{description.slice(0, 10)}...</p>
         <p>Post by {author_username}</p>
 		<div class="justify-end">
 			<a href="/posts/{_id}" class="btn btn-primary ">Read</a>
