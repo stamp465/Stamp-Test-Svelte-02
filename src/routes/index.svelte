@@ -40,7 +40,7 @@
 {:else if $allPosts.error}
 	<p>Oh no... {$allPosts.error.message}</p>
 {:else}
-<div class="grid gap-10 md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:-mx-52">
+<div class="grid gap-10 px-5 md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:-mx-52 ">
 		{#each $allPosts.data.listPosts.data as post}
 			<div class="post-wrap">
 				<Card

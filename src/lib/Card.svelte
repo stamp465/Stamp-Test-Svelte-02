@@ -6,8 +6,8 @@
 	export let title_image = '';
 </script>
 
-<div class="card shadow-xl">
-	<figure><img src="{title_image}" alt="title_image"  class="object-cover h-48 w-96"/></figure>
+<div class="card shadow-xl ">
+	<figure><img src="{title_image}" alt="title_image"  class="object-cover w-screen h-72 "/></figure>
 	<div class="card-body">
 		<h2 class="card-title">{title}</h2>
 		<p>{description.slice(0, 80)}...</p>
