@@ -1,38 +1,29 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+# To Run This Project
 
 ```bash
-# create a new project in the current directory
-npm init svelte
+# clone
+git clone https://github.com/stamp465/-Stamp-Test-Svelte-02.git Stamp-Test-Svelte-02
 
-# create a new project in my-app
-npm init svelte my-app
+#install module
+cd Stamp-Test-Svelte-02
+npm install
+
+#for graphql (ด้านบน น่าจะลงมาให้แล้ว)
+npm i @urql/svelte --save
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+# To Run Fauna
+สร้างไฟล์ .env ที่ภายในประกอบด้วย (ทำจาก Security > Keys > New Key)
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+VITE_PUBLIC_FAUNA_KEY=<Fauna Public Key>
+FGU_SECRET=<Your Admin Key>
 ```
-
-## Building
-
-To create a production version of your app:
-
+ติดตั้ง fauna for authentication 
 ```bash
-npm run build
+npm i @fauna-labs/graphql-tool fauna-gql-upload --save-dev
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+สร้าง schema
+```bash
+npm run fgt
+npm run fgu
+```
