@@ -44,7 +44,7 @@
 
 </script>
 
-<h1>Posts</h1>
+<h1 class="mt-20">My Posts</h1>
 
 {#if $myPosts.fetching}
 	<p>Loading...</p>

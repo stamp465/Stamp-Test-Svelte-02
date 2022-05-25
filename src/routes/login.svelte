@@ -58,7 +58,7 @@
 </script>
 
 <div>
-	<h3>Login Form</h3>
+	<h3 class="mt-20">Login Form</h3>
 	<form on:submit|preventDefault={onSubmit}>
 		<div>
 			<label for="name">Email</label>

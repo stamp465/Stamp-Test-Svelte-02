@@ -14,7 +14,7 @@
 	}
 </script>
 
-<div class="navbar bg-neutral text-neutral-content mb-10">
+<div class="navbar bg-neutral text-neutral-content">
 	<div class="navbar-start">
 		<div class="dropdown">
 			<!-- svelte-ignore a11y-label-has-associated-control -->

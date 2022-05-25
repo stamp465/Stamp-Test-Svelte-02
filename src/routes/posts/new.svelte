@@ -61,29 +61,31 @@
 	}
 </script>
 
-<div class="flex flex-col items-center ">
+<div class="flex flex-col items-center mt-20 ">
 	<h1 class="font-bold text-center mb-5 text-3xl">
 		New Post
 	</h1>
 	{#if !userSession}
 		<p class="login-promt">You must be logged in to create a post</p>
 	{/if}
-	<form on:submit|preventDefault={onSubmit} class="bg-cyan-100 w-full max-w-3xl bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg"> 
-		<div class="input-blocks">
+	<form on:submit|preventDefault={onSubmit} class="bg-emerald-100	 w-full max-w-3xl bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg"> 
+		<div class="input-blocks mb-5">
 			<label for="name" class="font-semibold">Title</label>
-			<input type="text" placeholder="Type here" class="input input-bordered input-sm w-full" name="title"/>
+			<input type="text" placeholder="Type here" class="input input-bordered w-full h-10" name="title"/>
 		</div>
-		<div class="input-blocks">
+		<div class="input-blocks mb-5">
 			<label for="name" class="font-semibold">Title Image</label>
-			<input type="text" placeholder="Type here" class="input input-bordered input-sm w-full" name="title_image" value="" />
+			<input type="text" placeholder="Type here" class="input input-bordered w-full h-10" name="title_image" value="" />
 		</div>
-		<div class="input-blocks">
+		<div class="input-blocks mb-5">
 			<label for="name" class="font-semibold">Content</label>
-			<textarea type="text" class="textarea textarea-bordered input-xl w-full" name="content" value="" />
+			<textarea type="text" class="textarea textarea-bordered h-96 w-full" name="content" value="" />
 		</div>
 		<button type="submit" class="btn btn-active btn-primary">Submit</button>
 	</form>
 </div>
+
+
 
 <style>
 	.login-promt {

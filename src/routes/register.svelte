@@ -36,7 +36,7 @@
 	}
 </script>
 
-<div class="wrap">
+<div class="wrap mt-20">
 	<h3>Register New User</h3>
 	<form on:submit|preventDefault={onSubmit}>
 		<div>

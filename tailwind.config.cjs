@@ -1,17 +1,20 @@
 const config = {
-  content: [
-    "./src/**/*.{html,js,svelte,ts}",
-  ],
+  mode: 'jit',
+  purge: ['./src/**/*.{html,js,svelte,ts}'],
 
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: null,
+          },
+        },
+      },
+    },
   },
 
-  plugins: [
-    require('@tailwindcss/typography'),
-    require("daisyui")
-  ],
-  darkMode: 'class',
-};
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+}
 
-module.exports = config;
+module.exports = config

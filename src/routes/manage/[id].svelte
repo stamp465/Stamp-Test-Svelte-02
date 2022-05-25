@@ -38,7 +38,7 @@
 {#if $currentPost.fetching}
 	<progress class="progress" />
 {:else}
-	<h2>{$currentPost.data.findPostByID.title}</h2>
+	<h2 class="mt-20">{$currentPost.data.findPostByID.title}</h2>
 	<p>By <b>{currentPost.data.findPostByID.author.username}</b></p>
 	<p>{$currentPost.data.findPostByID.content}</p>
 	<Edit {post} />

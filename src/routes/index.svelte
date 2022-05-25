@@ -31,7 +31,7 @@
 	console.log(Cookies);
 </script>
 
-<h1 class="font-bold text-center mb-20 text-5xl">
+<h1 class="font-bold text-center mb-20 text-5xl mt-20">
 	Welcome to Blog
 </h1>
 
