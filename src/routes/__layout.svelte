@@ -1,12 +1,13 @@
 <script>
 	import Nav from '$lib/Nav.svelte';
+	import Footer from '$lib/Footer.svelte';
 	/*import Nav from '$lib/Navtest.svelte';*/
 	import '../app.css';
 </script>
 
 <Nav />
 
-<main class="container max-w-3xl mx-auto px-4 ">
+<main class="container max-w-3xl mx-auto my-auto mb-20">
   <slot />
 </main>
 

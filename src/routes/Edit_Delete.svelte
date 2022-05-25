@@ -1,6 +1,7 @@
 <script lang="js">
 	import { gql, operationStore, query, setClient } from '@urql/svelte';
 	import client from '../client';
+	import Card from '$lib/Edit_Card.svelte';
 	setClient(client);
 
 	import { userSession } from '../store.js';
@@ -24,6 +25,8 @@
 							data {
 								_id
 								title
+								title_image
+								content
 								author {
 									email
 								}
@@ -44,23 +47,30 @@
 
 </script>
 
-<h1 class="mt-20">My Posts</h1>
+<h1 class="font-bold text-center mb-20 text-5xl mt-20">
+	My Posts
+</h1>
 
 {#if $myPosts.fetching}
-	<p>Loading...</p>
+	<progress class="progress" />
 {:else if $myPosts.error}
 	<p>Oh no... {$myPosts.error.message}</p>
 {:else}
+<div class="grid gap-10 px-5 md:grid-cols-2 md:px-10 lg:grid-cols-3 lg:-mx-52 ">
 	{#each $myPosts.data.GetPostByUsersEmail.data as userpost}
 		{#each userpost.posts.data as post}
 			<div class="post-wrap">
-				<a href="/manage/{post._id}">
-					<div>{post.title}</div>
-				</a>
-				<span>by {post.author.email}</span>
+				<Card
+					_id={post._id}
+					title={post.title}
+					title_image={post.title_image}
+					author_username={post.author.username}
+					description={post.content}
+				/>
 			</div>
 		{/each}
 	{/each}
+</div>
 {/if}
 
 <style>

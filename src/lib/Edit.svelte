@@ -10,9 +10,10 @@
 	}
 	const updatePost = mutation({
 		query: `
-        mutation UpdatePost($id: ID!, $title: String!, $content: String!) {
+        mutation UpdatePost($id: ID!, $title: String!, $title_image: String!, $content: String!) {
           updatePost(id: $id, data: {
             title: $title,
+			title_image: $title_image,
             content: $content
           }) {
             _id
@@ -23,17 +24,19 @@
 	export let post;
 	let isEdit = false;
 	let title = '';
+	let title_image = '';
 	let content = '';
 	let errorMessage = '';
 	function toggleEdit() {
 		isEdit = !isEdit;
 		if (isEdit) {
 			title = post.title;
+			title_image = post.title_image;
 			content = post.content;
 		}
 	}
 	async function onSubmit(e) {
-		const updatedPost = await updatePost({ id: post._id, title, content });
+		const updatedPost = await updatePost({ id: post._id, title, title_image, content });
 		console.log('updatedPost', updatedPost);
 		const { data, error } = updatedPost;
 		if (error) {
@@ -56,6 +59,10 @@
 			<div class="input-blocks">
 				<label for="name">Title</label>
 				<input type="text" name="title" bind:value={title} />
+			</div>
+			<div class="input-blocks">
+				<label for="name">Title Image</label>
+				<input type="text" name="title_image" bind:value={title_image} />
 			</div>
 			<div class="input-blocks">
 				<label for="name">Content</label>

@@ -16,7 +16,7 @@
 		</div>
 		
 		<div class="basis-1/4 ">
-			<a href="/posts/{_id}" class="btn btn-neutral h-full w-full">Read More</a>
+			<a href="/manage/{_id}" class="btn btn-neutral h-full w-full">Edit</a>
 		</div>
 	</div>
   </div>

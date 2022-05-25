@@ -12,6 +12,7 @@
         findPostByID(id: $id) {
           _id
           title
+		  title_image
           content
           author {
             username

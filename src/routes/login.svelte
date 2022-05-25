@@ -57,17 +57,24 @@
 	}
 </script>
 
-<div>
-	<h3 class="mt-20">Login Form</h3>
-	<form on:submit|preventDefault={onSubmit}>
-		<div>
-			<label for="name">Email</label>
-			<input type="text" id="email" name="email" value="" />
+<div class="">
+	<h1 class="font-bold text-center mb-5 text-3xl">
+		Login Form
+	</h1>
+	<form on:submit|preventDefault={onSubmit} class="bg-blue-100 w-full max-w-3xl bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg">
+		<div class="input-blocks mb-5">
+
+			<label for="name" class="font-semibold">Email</label>
+			<input type="text" placeholder="Type here" class="input input-bordered w-full h-10" id="email" name="email"/>
+		
 		</div>
-		<div>
-			<label for="name">Password</label>
-			<input type="password" id="password" name="password" value="" />
+		<div class="input-blocks mb-5">
+
+			<label for="name" class="font-semibold">Password</label>
+			<input type="password" placeholder="Type here" class="input input-bordered w-full h-10" id="password" name="password"/>
+		
+
 		</div>
-		<button type="submit">Submit</button>
+		<button type="submit" class="btn btn-active btn-primary">Submit</button>
 	</form>
 </div>

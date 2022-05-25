@@ -68,7 +68,7 @@
 	{#if !userSession}
 		<p class="login-promt">You must be logged in to create a post</p>
 	{/if}
-	<form on:submit|preventDefault={onSubmit} class="bg-emerald-100	 w-full max-w-3xl bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg"> 
+	<form on:submit|preventDefault={onSubmit} class="bg-blue-100 w-full max-w-3xl bg-white flex flex-col py-5 px-8 rounded-lg shadow-lg"> 
 		<div class="input-blocks mb-5">
 			<label for="name" class="font-semibold">Title</label>
 			<input type="text" placeholder="Type here" class="input input-bordered w-full h-10" name="title"/>
