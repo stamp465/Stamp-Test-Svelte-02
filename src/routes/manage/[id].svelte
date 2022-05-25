@@ -4,6 +4,7 @@
 	import client from '../../client';
 	import Delete from '$lib/Delete.svelte';
 	import Edit from '$lib/Edit.svelte';
+	import { marked } from 'marked';
 	import Edit_T from '$lib/Edit_T.svelte';
 	setClient(client);
 
@@ -42,15 +43,26 @@
 	<progress class="progress w-full self-center" />
 </div>
 {:else}
-<div class="mx-5 my-5">
-	<h2 class="mt-20">{$currentPost.data.findPostByID.title}</h2>
-	<p>By <b>{currentPost.data.findPostByID.author.username}</b></p>
-	<p>{$currentPost.data.findPostByID.content}</p>
-	<Edit {post} />
-	<Delete />
 
-	<Edit_T {post} />
-	<!-- The button to open modal -->
+	<div class=" mx-5 my-5">
+		<div class="flex justify-around mb-5">
+			<Edit_T {post} />
+			<Delete />
+		</div>
 	
-</div>
+		<div class="relative overflow-hidden rounded-3xl mb-20">
+			<img class="object-cover w-screen object-bottom" src="{$currentPost.data.findPostByID.title_image}" alt="title_image"/>
+			<div class="absolute bottom-0 bg-slate-100 bg-opacity-40 w-full">
+				<h1 class="text-5xl font-bold text-center mt-3 mb-3">
+					{$currentPost.data.findPostByID.title}
+				</h1>
+			</div>
+		</div>
+		
+		<div>
+			<article class="prose ">
+				{@html marked($currentPost.data.findPostByID.content)}
+			</article>
+		</div>
+	</div>
 {/if}

@@ -44,38 +44,10 @@
 		}
 		if (data) {
 			alert('Post updated');
-			goto(`/`);
+			goto(`/Edit_Delete`);
 		}
 	}
 </script>
-
-<!--
-{#if isEdit}
-	<div>
-		<h5>Edit Post</h5>
-		{#if errorMessage}
-			<p class="error">{errorMessage}</p>
-		{/if}
-		<form on:submit|preventDefault={onSubmit}>
-			<div class="input-blocks">
-				<label for="name">Title</label>
-				<input type="text" name="title" bind:value={title} />
-			</div>
-			<div class="input-blocks">
-				<label for="name">Title Image</label>
-				<input type="text" name="title_image" bind:value={title_image} />
-			</div>
-			<div class="input-blocks">
-				<label for="name">Content</label>
-				<textarea type="text" name="content" bind:value={content} />
-			</div>
-			<button class="update" type="submit" disabled={!userSession}>Update</button>
-		</form>
-	</div>
-{/if}
-
-<button on:click={toggleEdit} disabled={!userSession}>Edit</button>-->
-
 
 
 <!-- The button to open modal -->
@@ -108,6 +80,9 @@
 
 </div>
 
+
+
+<!--
 <style>
 	.error {
 		color: coral;
@@ -117,3 +92,31 @@
 		margin-top: 10px;
 	}
 </style>
+
+
+
+{#if isEdit}
+	<div>
+		<h5>Edit Post</h5>
+		{#if errorMessage}
+			<p class="error">{errorMessage}</p>
+		{/if}
+		<form on:submit|preventDefault={onSubmit}>
+			<div class="input-blocks">
+				<label for="name">Title</label>
+				<input type="text" name="title" bind:value={title} />
+			</div>
+			<div class="input-blocks">
+				<label for="name">Title Image</label>
+				<input type="text" name="title_image" bind:value={title_image} />
+			</div>
+			<div class="input-blocks">
+				<label for="name">Content</label>
+				<textarea type="text" name="content" bind:value={content} />
+			</div>
+			<button class="update" type="submit" disabled={!userSession}>Update</button>
+		</form>
+	</div>
+{/if}
+
+<button on:click={toggleEdit} disabled={!userSession}>Edit</button>-->

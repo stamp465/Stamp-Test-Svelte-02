@@ -44,7 +44,7 @@
 		}
 		if (data) {
 			alert('Post updated');
-			goto(`/`);
+			goto(`/Edit_Delete`);
 		}
 	}
 </script>
