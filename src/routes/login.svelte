@@ -57,7 +57,7 @@
 	}
 </script>
 
-<div class="">
+<div class=" mx-5 my-5">
 	<h1 class="font-bold text-center mb-5 text-3xl">
 		Login Form
 	</h1>

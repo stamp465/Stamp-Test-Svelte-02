@@ -36,7 +36,7 @@
 	}
 </script>
 
-<div class="wrap mt-20">
+<div class="wrap  mx-5 my-5 mt-20">
 	<h1 class="font-bold text-center mb-5 text-3xl">
 		Register New User
 	</h1>

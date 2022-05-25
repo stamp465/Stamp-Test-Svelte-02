@@ -6,17 +6,19 @@
 	export let title_image = '';
 </script>
 
-<div class="card shadow-xl ">
+<div class="card shadow-xl bg-white">
 	<figure><img src="{title_image}" alt="title_image"  class="object-cover w-screen h-72 "/></figure>
-	<div class="flex flex-row card-body bg-white">
+	<div class="flex flex-row card-body ">
 		<div class="basis-3/4 ">
 			<h2 class="card-title">{title}</h2>
 			<h4>{description.slice(0, 10)}...</h4>
-        	<h4 class="text-bold text-right">Post by {author_username}</h4>
 		</div>
 		
 		<div class="basis-1/4 ">
 			<a href="/posts/{_id}" class="btn btn-neutral h-full w-full">Read More</a>
 		</div>
+		
 	</div>
+	<h4 class="text-bold text-center mb-3">Post by {author_username}</h4>
+
   </div>

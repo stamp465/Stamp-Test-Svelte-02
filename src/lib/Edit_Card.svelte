@@ -12,7 +12,6 @@
 		<div class="basis-3/4 ">
 			<h2 class="card-title">{title}</h2>
 			<h4>{description.slice(0, 10)}...</h4>
-        	<h4 class="text-bold text-right">Post by {author_username}</h4>
 		</div>
 		
 		<div class="basis-1/4 ">

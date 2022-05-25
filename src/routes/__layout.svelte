@@ -7,7 +7,7 @@
 
 <Nav />
 
-<main class="container max-w-3xl mx-auto my-auto mb-20">
+<main class="container max-w-3xl mb-20 mx-auto my-auto">
   <slot />
 </main>
 

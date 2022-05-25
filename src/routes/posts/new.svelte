@@ -61,7 +61,7 @@
 	}
 </script>
 
-<div class="flex flex-col items-center mt-20 ">
+<div class="flex flex-col items-center mt-20 mx-5 my-5 ">
 	<h1 class="font-bold text-center mb-5 text-3xl">
 		New Post
 	</h1>

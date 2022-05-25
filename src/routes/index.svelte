@@ -36,7 +36,9 @@
 </h1>
 
 {#if $allPosts.fetching}
-	<progress class="progress" />
+<div class="grid grid-cols-1 place-items-center mx-5 my-5">
+	<progress class="progress w-full self-center" />
+</div>
 {:else if $allPosts.error}
 	<p>Oh no... {$allPosts.error.message}</p>
 {:else}
