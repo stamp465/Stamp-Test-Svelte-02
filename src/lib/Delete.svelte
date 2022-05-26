@@ -45,6 +45,8 @@
 	}
 </script>
 
-<button on:click|preventDefault={handleDelete} disabled={!userSession} class="btn modal-button"
+{#if userSession}
+<button on:click|preventDefault={handleDelete} class="btn modal-button"
 	>Delete</button
 >
+{/if}

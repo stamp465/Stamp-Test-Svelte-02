@@ -50,6 +50,7 @@
 </script>
 
 
+{#if userSession}
 <!-- The button to open modal -->
 <label on:click={toggleEdit} for="my-modal-3" class="btn modal-button">Edit Post</label>
 
@@ -79,7 +80,7 @@
   </div>
 
 </div>
-
+{/if}
 
 
 <!--
