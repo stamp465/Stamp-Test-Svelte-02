@@ -2,10 +2,8 @@
 	import { operationStore, query, setClient } from '@urql/svelte';
 	import { page } from '$app/stores';
 	import client from '../../client';
-	import Delete from '$lib/Delete.svelte';
-	import Edit from '$lib/Edit.svelte';
-	import { marked } from 'marked';
-	import Edit_T from '$lib/Edit_T.svelte';
+	import Edit_T2 from '$lib/Edit_T2.svelte';
+	import Preview from '$lib/Preview.svelte';
 	setClient(client);
 
 	const currentPost = operationStore(
@@ -29,40 +27,55 @@
 	query(currentPost);
 
 	export let post = null;
+	export let content='';
+    export let title='';
+    export let title_image='';
+	let preview=false;
 
 	currentPost.subscribe(({ data }) => {
 		if (data) {
 			post = data.findPostByID;
-			console.log(post)
+			title = post.title;
+			title_image = post.title_image;
+			content = post.content;
+			console.log(post.title)
 		}
 	});
+
+
+	function showPreview() {
+		preview = !preview;
+		console.log(content)
+		console.log(title)
+		console.log(title_image)
+	}
+
 </script>
 
-{#if $currentPost.fetching}
-<div class="grid grid-cols-1 place-items-center mx-5 my-5">
-	<progress class="progress w-full self-center" />
-</div>
+
+{#if preview}
+	<Preview 
+		bind:content
+		bind:title
+		bind:title_image
+	/>
 {:else}
 
-	<div class=" mx-5 my-5">
-		<div class="flex justify-around mb-5">
-			<Edit_T {post} />
-			<Delete />
-		</div>
-	
-		<div class="relative overflow-hidden rounded-3xl mb-20">
-			<img class="object-cover w-screen object-bottom" src="{$currentPost.data.findPostByID.title_image}" alt="title_image"/>
-			<div class="absolute bottom-0 bg-slate-100 bg-opacity-40 w-full">
-				<h1 class="text-5xl font-bold text-center mt-3 mb-3">
-					{$currentPost.data.findPostByID.title}
-				</h1>
-			</div>
-		</div>
-		
-		<div>
-			<article class="prose ">
-				{@html marked($currentPost.data.findPostByID.content)}
-			</article>
-		</div>
-	</div>
+	<Edit_T2
+		bind:post
+		bind:content
+		bind:title
+		bind:title_image
+	/>
 {/if}
+
+
+<footer class="bg-neutral bg-opacity-20 text-white text-center fixed inset-x-0 bottom-0 p-3">
+	<button class='btn btn-success w-1/2' on:click={showPreview}> 
+		{#if preview}
+			Back to Post Page
+		{:else}
+			Preview Page
+		{/if}
+	</button>
+</footer>

@@ -24,7 +24,7 @@
 	});
 
 	async function handleDelete() {
-		let confirmAction = confirm('Are you sure to execute this action?');
+		let confirmAction = confirm('Are you sure to Delete?');
 		if (confirmAction) {
 			const { data, error } = await deletePost({ id: $page.params.id });
 
