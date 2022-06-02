@@ -46,6 +46,8 @@
 			</ul>
 		</div>
 		<a href="/" class="btn btn-ghost normal-case text-xl">Blog</a>
+		<a href="/facedetect" class="btn btn-ghost normal-case text-xl">face_detect</a>
+		
 	</div>
 	<div class="navbar-end">
 		<div class="hidden lg:flex ">

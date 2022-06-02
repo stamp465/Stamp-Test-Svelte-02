@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-
-
+	
 	let videoSource = null;
 	let loading = false;
 	onMount(async () => {
